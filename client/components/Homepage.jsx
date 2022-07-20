@@ -12,7 +12,7 @@ const Homepage = () => {                //homepage background image
             </div>
 
             <div className={css.miniText}>
-                We aim to share the joy of eating noodles from around the world
+                We aim to share the joy of eating noodles from around the world!
             </div>
         </div>
 
