@@ -4,7 +4,7 @@
 ./client/node_modules
 ./server/node_modules
 node_modules/
-./client/sampleImages
+/sampleImages/
 /.pnp
 .pnp.js
 
