@@ -11,6 +11,7 @@ body {
 }
 
 :root{
+  --themeGold:rgb(246, 148, 29);
   --themeRed: #ea4040;
   --themeBlack: #2E2E2E;
   --pink: #FDECEC;

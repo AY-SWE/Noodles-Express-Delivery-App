@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    position: relative;
+}
+
+.leftSide{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.heroText{
+    display: flex;
+    flex-direction: column;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.rightSide{
+
+}

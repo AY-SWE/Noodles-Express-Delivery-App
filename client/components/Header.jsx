@@ -2,7 +2,7 @@ import React from 'react'
 import css from '../styles/Header.module.css'
 import Logo from "../sampleImages/Logo.png"
 import Image from "next/image"
-import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 const Header = () => {
   return (
@@ -20,7 +20,7 @@ const Header = () => {
 
         <div className={css.rightSide}>
             <div className={css.cart}>
-                <ShoppingBagOutlinedIcon sx={{ fontSize: "30px" }}/>
+                <ShoppingCartOutlinedIcon sx={{ fontSize: "30px" }}/>
                 <div className={css.badge}>1</div>
             </div>
 
