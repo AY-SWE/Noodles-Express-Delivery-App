@@ -28,12 +28,12 @@ body {
 }
 /* Track */
 ::-webkit-scrollbar-track {
-  background: rgb(207, 37, 65);
+  background: rgba(187, 240, 243, 0.85);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--themeRed);
+  background: var(--themeGold);
   border-radius: 1rem;
 }
 
@@ -52,4 +52,15 @@ a {
   box-sizing: border-box;
   transition: all 250ms ease;
 
+}
+
+.buttons{      
+  width: max-content;
+  font-size: 16px;
+  padding: 1rem;
+  border: none;
+  border-radius: 40px;
+  color: var(--themeGold);
+  background-color: black;
+  cursor: pointer;
 }
