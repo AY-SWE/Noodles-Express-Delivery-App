@@ -32,9 +32,11 @@
 .menu>li:hover{
     cursor:pointer;
     border-radius: 5px;
-    padding: 3px;
-    background-color: var(--themeRed);
+    padding: 0.3rem 1rem;
+    background-color: var(--themeGold);
     color: white;
+    border-radius: 40px;
+    
 }
 
 .rightSide{

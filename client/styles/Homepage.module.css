@@ -18,7 +18,7 @@
 
 .miniText{
     width: 60%;
-    font-weight: 600;
+    font-weight: bolder;
     color: var(--themeGold);
 }
 
