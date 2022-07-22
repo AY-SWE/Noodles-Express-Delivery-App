@@ -7,13 +7,31 @@
 
 import Layout from '../../components/Layout'
 import React from 'react'
-import { client } from '../../lib/client';
+import { client, urlFor } from '../../lib/client';
+import css from '../../styles/Noodle.module.css'
+import Image from 'next/image';
 
 export default function Noodle({noodles}){       
     console.log(noodles);       //fixed by console log noodles, not noodle
+
+    const src = urlFor(noodles.image).url();
     return(
         <Layout>
-            asd
+            {/* leftside */}
+            <div>
+                
+            </div>
+
+
+            {/* rightside */}
+            <div className={css.container}>
+                <div className={css.noodleImage}>
+                    <Image 
+                    loader={()=>src} layout="fill" unoptimized objectFit='cover'
+                    src={src} alt=""></Image>        {/* src = src because we're fetching image dynamically from dataset */}
+                    
+                </div>
+            </div>
         </Layout>
     )
 };

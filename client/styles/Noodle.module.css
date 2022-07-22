@@ -1,0 +1,18 @@
+.container{
+    display: flex;
+    padding: 2rem;
+    margin-top: 2rem;
+    gap: 5rem;
+}
+
+.noodleImage{
+    position: relative;
+    width: 40%;
+    height: 30rem;
+    overflow: hidden;
+    border-radius: 30%;
+   
+}
+
+.noodleImage2{
+}
