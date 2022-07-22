@@ -3,8 +3,10 @@ import Layout from "../components/Layout";
 import Homepage from "../components/Homepage";
 import Services from "../components/Services";
 import css from "../styles/Home.module.css";
+import { client } from "../lib/client";
 
-export default function Home() {    
+export default function Home({noodles}) {
+  console.log(noodles);   
   return (
     <Layout>
       <div className={css.container}>
@@ -23,3 +25,12 @@ export default function Home() {
   );
 }
 
+export const getServerSideProps = async() => {
+  const query = '*[_type == "noodles"]';
+  const noodles = await client.fetch(query);
+  return {
+    props:{
+      noodles 
+    }
+  }
+}
