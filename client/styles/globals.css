@@ -11,7 +11,9 @@ body {
 }
 
 :root{
-  --themeGold:rgb(246, 148, 29);
+  --themeGradient:linear-gradient(#e66465, #9198e5);
+  --themeGold:#F6941D;
+  --themeGoldGradient:linear-gradient(98.63deg, #F6941D 0%, #a05d0a 100%);
   --themeRed: #ea4040;
   --themeBlack: #2E2E2E;
   --pink: #FDECEC;
@@ -50,7 +52,7 @@ a {
 
 * {
   box-sizing: border-box;
-  transition: all 250ms ease;
+  transition: all 150ms ease;
 
 }
 

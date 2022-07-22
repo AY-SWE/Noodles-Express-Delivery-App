@@ -20,16 +20,16 @@ const Services = () => {
                     <Image src={s1} alt="" objectFit='cover' layout='intrinsic'/>
                 </div>
 
-                <span>Fast Order</span>
-                <span>SSSSSSSSSSSSSSSSSSS</span>
+                <span>Easy Order</span>
+                <span>Make an order online in no time</span>
             </div>
             <div className={css.feature}>
                 <div className={css.featureImage}>
                     <Image src={s2} alt="" objectFit='cover' layout='intrinsic'/>
                 </div>
 
-                <span>Fast Order</span>
-                <span>SSSSSSSSSSSSSSSSSSS</span>
+                <span>Quick Delivery</span>
+                <span>Prepared with utmost care </span>
 
             </div>
             <div className={css.feature}>
@@ -37,8 +37,8 @@ const Services = () => {
                     <Image src={s3} alt="" objectFit='cover' layout='intrinsic'/>
                 </div>
 
-                <span>Fast Order</span>
-                <span>SSSSSSSSSSSSSSSSSSS</span>
+                <span>Highest Quality</span>
+                <span>Enjoy the meal </span>
 
             </div> 
         </div>

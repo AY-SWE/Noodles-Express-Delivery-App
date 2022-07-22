@@ -12,7 +12,7 @@ const Homepage = () => {                //homepage background image
         <div className={css.leftSide}>
             <div className={css.heroText}>
                 <span>HUNGRY?</span>
-                <span>Your favorite <span style={{color:"var(--themeGold)"}}>Noodles</span> </span>
+                <span>Your favorite <span style={{color:"transparent", WebkitBackgroundClip:"text", backgroundImage:"var(--themeGoldGradient)"}}>Noodles</span> </span>
                 <span>delivered to your door</span>
             </div>
 

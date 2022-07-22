@@ -30,6 +30,10 @@
     align-items: center;
 }
 
+.feature>:nth-child(3){
+    font-weight: bold;
+}
+
 .featureImage{
     width: 15rem;
     height: 15rem;

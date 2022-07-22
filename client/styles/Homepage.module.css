@@ -26,7 +26,7 @@
     padding: 1rem 2rem; 
 }
 .orderButton:hover{
-    color: black;
+    color: white;
     background-color: var(--themeGold);
     transform: scale(1.1);
 }

@@ -1,0 +1,60 @@
+.container{
+    flex-direction: column;
+    display: flex;
+    gap: 3rem;
+    margin-top: 5rem;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header>span{
+    font-size: 32px;
+}
+
+.noodleImage{
+    height: 20rem;
+    width: 20rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.noodleImage>span>img:hover{
+    transform: scale(1.1);
+}
+
+.menu{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.noodle{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    font-size: 18px;
+}
+
+.noodle>:hover{
+    cursor: pointer;
+}
+
+.noodle>:nth-child(2){
+    font-weight: bold;
+}
+.noodle>:nth-child(3){
+    font-weight: 600;
+}
