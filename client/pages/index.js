@@ -2,11 +2,11 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 import Homepage from "../components/Homepage";
 import Services from "../components/Services";
+import Menu from "../components/Menu";
 import css from "../styles/Home.module.css";
 import { client } from "../lib/client";
 
 export default function Home({noodles}) {
-  console.log(noodles);   
   return (
     <Layout>
       <div className={css.container}>
@@ -19,6 +19,7 @@ export default function Home({noodles}) {
         <main>
           <Homepage/> 
           <Services/>   
+          <Menu noodles={noodles}/>   
         </main>
       </div>
     </Layout>
