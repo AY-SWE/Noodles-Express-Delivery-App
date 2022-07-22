@@ -2,9 +2,9 @@ import React from 'react'
 import css from '../styles/Menu.module.css'
 import Image from 'next/image';
 import {urlFor} from "../lib/client"
+import Link from "next/link"
 
 const Menu = ({noodles}) => {
-    console.log(noodles);
   return (
     <div className={css.container}>
         <div className={css.header}>
@@ -17,13 +17,13 @@ const Menu = ({noodles}) => {
               const src = urlFor(noodle.image).url();
               return(
                 <div className={css.noodle} key={id}>
-
-                    <div className={css.noodleImage}>
-      
-                        <Image loader={()=>src} src={src} alt=''
-                        objectFit='cover' layout='fill'/>
-                    </div>
-
+                    <Link href={`./noodle/${noodle.slug.current}`}>
+                          <div className={css.noodleImage}>
+            
+                              <Image loader={()=>src} src={src} alt=''
+                              objectFit='cover' layout='fill'/>
+                          </div>
+                    </Link>
                     <span>{noodle.name}  </span>
                     <span>${noodle.price} </span>
                 </div>
