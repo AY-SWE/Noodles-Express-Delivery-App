@@ -14,5 +14,56 @@
    
 }
 
-.noodleImage2{
+.noodleImage>span>img:hover{
+    transform: scale(1.05);
+
+}
+
+.rightSide{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    font-weight: bold;
+    justify-content: center;
+    gap: 2rem;
+}
+.rightSide>:nth-child(1){
+    font-size: 40px;
+    color: transparent;
+    background-clip: text;
+    background-image: var(--themeGoldGradient);
+}
+
+.rightSide>:nth-child(2){
+    font-size: 20px;
+    color: transparent;
+    background-clip: text;
+    background-image: var(--themeGradient);
+}
+
+.quantity{
+    display: flex;
+}
+
+.counter{
+    display: flex;
+    gap: 1rem;
+    font-size: 40px;
+}
+
+
+.counterIcon>:hover{
+    cursor: pointer;
+}
+
+.addToCartBtn{
+    padding: 1rem 2rem; 
+}
+
+.addToCartBtn>:hover{
+        color: white;
+        background-color: var(--themeGold);
+        transform: scale(1.1);
+        cursor: pointer;
 }

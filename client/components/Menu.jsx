@@ -8,7 +8,7 @@ const Menu = ({noodles}) => {
   return (
     <div className={css.container}>
         <div className={css.header}>
-          <span>DISCOVER MORE DISHES</span>
+          <span>SOME POPULAR DISHES</span>
           <span>ENJOY NEW <span style={{color:"transparent", WebkitBackgroundClip:"text", backgroundImage:"var(--themeGoldGradient)"}}>TASTE</span> AROUND THE WORLD</span>
         </div>
 
