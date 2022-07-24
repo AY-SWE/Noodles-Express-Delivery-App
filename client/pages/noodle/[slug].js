@@ -12,10 +12,12 @@ import css from '../../styles/Noodle.module.css'
 import Image from 'next/image';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { style } from '@mui/system';
+import { fontSize, style } from '@mui/system';
 import { useState } from 'react';
+import { useStore } from '../../store/store';
+import toast, {Toaster} from "react-hot-toast"
 
-export default function Noodle({noodles}){       
+export default function Noodle({noodles}){          //prop received from getstaticprop   
     console.log(noodles);       //fixed by console log noodles, not noodle
 
     const [counter, setCounter] = useState(1);
@@ -28,6 +30,13 @@ export default function Noodle({noodles}){
         :counter === 1
         ? null
         :setCounter((prev)=> prev-1);
+    };
+
+     //handle add to cart function
+     const addNoodles = useStore((state)=> state.addNoodles);
+     const handleAddToCart= () =>{
+        addNoodles({...noodles, price: noodles.price, quantity: counter })
+        toast.success ("Added to Cart"); 
     };
     return(
         <Layout>
@@ -64,10 +73,11 @@ export default function Noodle({noodles}){
                       </div>
 
                       {/* button */}
-                      <div className={`buttons ${css.addToCartBtn}`} >
+                      <div className={`buttons ${css.addToCartBtn}`} onClick={handleAddToCart}> 
                             Add to Cart
                       </div>
-                </div>
+                </div>  
+                <Toaster/>
             </div>
         </Layout>
     )
