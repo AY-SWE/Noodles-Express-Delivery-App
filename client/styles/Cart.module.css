@@ -1,0 +1,23 @@
+.container{
+    display: grid;
+    padding: 2rem;
+    grid-template-columns: 2.2fr 1fr;
+}
+
+.table{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 1rem;
+}
+
+.tbody>tr>td{
+    text-align: center;
+}
+
+.tbody>tr>:nth-child(2){
+    width: 20%;
+}
+
+.imageTd>span>img{
+    border-radius: 50%;
+}
