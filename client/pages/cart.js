@@ -5,10 +5,13 @@ import { urlFor } from '../lib/client';
 import { useStore } from '../store/store';
 import css from "../styles/Cart.module.css";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import toast, {Toaster} from "react-hot-toast"
 
 export default function Cart() {
+    const removeNoodles = useStore((state)=> state.removeNoodles);
     const handleRemove = (i) => {
-        
+        removeNoodles(i);
+        toast.error("Item Removed");
     }
     const cartData = useStore((state)=> state.cart);
     return(
@@ -45,7 +48,7 @@ export default function Cart() {
                                             </td>
                 
                                             <td>
-                                                {noodle.price}
+                                                $ {noodle.price}
                                             </td>
                 
                                             <td>
@@ -53,7 +56,7 @@ export default function Cart() {
                                             </td>
                 
                                             <td>
-                                                {(noodle.quantity * noodle.price).toFixed(2)}
+                                                $ {(noodle.quantity * noodle.price).toFixed(2)}
                                             </td>
                                             
                                             <td>   
@@ -74,6 +77,7 @@ export default function Cart() {
               {/* summary section */}
               <div className={css.cart}></div>
           </div>
+          <Toaster/>
       </Layout>
     )
 };

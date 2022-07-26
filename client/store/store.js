@@ -18,6 +18,13 @@ export const useStore = create(
             cart: {
                 noodles: [...state.cart.noodles, data]
             }
+        })),
+
+        //remove Noodle in cart
+        removeNoodles: (index) => set((state)=> ({      //function
+            cart: {
+                noodles: state.cart.noodles.filter((_, i) => i != index)
+            }
         }))
     }) 
 )

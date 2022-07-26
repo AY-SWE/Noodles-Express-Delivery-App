@@ -6,6 +6,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import CopyrightIcon from '@mui/icons-material/Copyright';
 import Image from "next/image"
 import Logo from "../sampleImages/Logo.png"
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -19,7 +20,7 @@ const Footer = () => {
 
           <div className={css.socialMediaIcons}>
             <FacebookIcon sx={{ fontSize: "35px" }}/>
-            <GitHubIcon sx={{ fontSize: "35px" }}/>
+              <GitHubIcon sx={{ fontSize: "35px" }}/>
             <InstagramIcon sx={{ fontSize: "35px" }}/>
 
           </div>
