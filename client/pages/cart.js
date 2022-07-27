@@ -6,14 +6,17 @@ import { useStore } from '../store/store';
 import css from "../styles/Cart.module.css";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import toast, {Toaster} from "react-hot-toast"
+import { tooltipClasses } from '@mui/material';
 
 export default function Cart() {
+    const cartData = useStore((state)=> state.cart);
     const removeNoodles = useStore((state)=> state.removeNoodles);
+    const total = () => cartData.noodles.reduce((a,b)=>a+b.quantity * b.price, 0);
+
     const handleRemove = (i) => {
         removeNoodles(i);
         toast.error("Item Removed");
     }
-    const cartData = useStore((state)=> state.cart);
     return(
         <Layout>
           <div className={css.container}>
@@ -75,7 +78,31 @@ export default function Cart() {
               </div>
 
               {/* summary section */}
-              <div className={css.cart}></div>
+              <div className={css.cart}>
+                    <span>Cart</span>
+                    <div className={css.cartDetails}>
+                        <div>
+                            <span>Items </span>
+                            <span>{cartData.noodles.length}</span>
+                        </div>
+
+                        <div>
+                            <span>Total</span>
+                            <span>$ {total().toFixed(2)}</span>
+                        </div>
+
+                        <div className={css.cartButtons}>
+                            <div className={`buttons ${css.payOnDeliveryBtn}`} > 
+                                Pay on Delivery
+                            </div>
+                            <div className={`buttons ${css.payNowBtn}`} > 
+                                Pay Now
+                            </div>
+                        </div>
+
+                    </div>
+
+              </div>
           </div>
           <Toaster/>
       </Layout>

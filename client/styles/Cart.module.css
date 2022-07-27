@@ -1,7 +1,7 @@
 .container{
     display: grid;
     padding: 2rem;
-    grid-template-columns: 2.2fr 1fr;
+    grid-template-columns: 2fr 0.8fr; 
 }
 
 .table{
@@ -21,3 +21,62 @@
 .imageTd>span>img{
     border-radius: 50%;
 }
+
+.cart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 14rem;
+    padding: 1.5rem;
+    background-color: var(--cartBack);
+    box-shadow: var(--shadow);
+    border-radius: 1rem;
+}
+
+.cart>span{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.cartDetails>div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cartDetails{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.payNowBtn{
+    padding: 0.9rem;
+    display: flex;
+}
+
+.payNowBtn:hover{
+    color: white;
+    background-color: var(--themeGold);
+    transform: scale(1.1);
+}
+
+.payOnDeliveryBtn{
+    display: flex;
+    padding: 0.9rem;
+    background-color: transparent;
+    color:var(--themeRed);
+    border: 2px solid black;
+}
+
+.payOnDeliveryBtn:hover{
+    color: white;
+    background-color: var(--themeGold);
+    transform: scale(1.1);
+}
+
+.cartButtons{
+    display: flex;
+}
+
