@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React from 'react'
+import React, {useState} from 'react'
 import Layout from '../components/Layout'
 import { urlFor } from '../lib/client';
 import { useStore } from '../store/store';
@@ -7,16 +7,24 @@ import css from "../styles/Cart.module.css";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import toast, {Toaster} from "react-hot-toast"
 import { tooltipClasses } from '@mui/material';
+import OrderModal from '../components/OrderModal';
 
 export default function Cart() {
     const cartData = useStore((state)=> state.cart);
     const removeNoodles = useStore((state)=> state.removeNoodles);
     const total = () => cartData.noodles.reduce((a,b)=>a+b.quantity * b.price, 0);
+    const [paymentMethod, setPaymentMethod] = useState(null);   //pay on delivery is index 0, pay now is index 1
 
     const handleRemove = (i) => {
         removeNoodles(i);
         toast.error("Item Removed");
     }
+
+    const handleOnDelivery = () => {
+         setPaymentMethod(0);
+         typeof window !== 'undefined' && localStorage.setItem('total', total())    //need this condition since we're working with next.js
+    }
+
     return(
         <Layout>
           <div className={css.container}>
@@ -92,7 +100,7 @@ export default function Cart() {
                         </div>
 
                         <div className={css.cartButtons}>
-                            <div className={`buttons ${css.payOnDeliveryBtn}`} > 
+                            <div className={`buttons ${css.payOnDeliveryBtn}`} onClick={handleOnDelivery}> 
                                 Pay on Delivery
                             </div>
                             <div className={`buttons ${css.payNowBtn}`} > 
@@ -105,6 +113,12 @@ export default function Cart() {
               </div>
           </div>
           <Toaster/>
+          {/* modal */}
+          <OrderModal
+          opened={paymentMethod === 0}
+          setOpened = {setPaymentMethod}
+          paymentMethod = {paymentMethod}
+          />
       </Layout>
     )
 };
