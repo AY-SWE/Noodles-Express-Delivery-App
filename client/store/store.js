@@ -25,6 +25,12 @@ export const useStore = create(
             cart: {
                 noodles: state.cart.noodles.filter((_, i) => i != index)
             }
-        }))
+        })),
+
+        resetCart:()=> set(()=>({
+            cart:{
+                noodles:[]
+            }
+        })) 
     }) 
 )

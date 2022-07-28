@@ -15,12 +15,18 @@ export default function OrderModal({opened, setOpened, paymentMethod}) {
     setFormData({...formData, [e.target.name]:e.target.value})
   }
 
+  const resetCart = useStore((state)=>state.resetCart);
+
   const handleSubmit = async (e) =>{
     e.preventDefault();
     //console.log(formData);  //works
     const id = await createOrder({...formData,total, paymentMethod})
     toast.success("Order successfully placed");
-     
+    console.log("order successfully placed", id);
+    resetCart();
+    {
+      typeof window !== 'undefined' && localStorage.setItem('order',id);
+    }
   }
 
     return(
@@ -39,7 +45,7 @@ export default function OrderModal({opened, setOpened, paymentMethod}) {
 
             <span>You will pay <span>${total}</span> on delivery</span>
             <button className={`buttons ${css.placeOrderBtn}`} type='submit'>Place Order</button>
-        </form>
+        </form> 
 
       <Toaster/>
       </Modal>
