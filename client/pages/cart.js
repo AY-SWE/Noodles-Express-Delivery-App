@@ -8,6 +8,8 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import toast, {Toaster} from "react-hot-toast"
 import { tooltipClasses } from '@mui/material';
 import OrderModal from '../components/OrderModal';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 export default function Cart() {
     const cartData = useStore((state)=> state.cart);
@@ -25,7 +27,6 @@ export default function Cart() {
          setPaymentMethod(0);
          typeof window !== 'undefined' && localStorage.setItem('total', total())    //need this condition since we're working with next.js
     }
-
     return(
         <Layout>
           <div className={css.container}>
@@ -63,8 +64,9 @@ export default function Cart() {
                                                 $ {noodle.price}
                                             </td>
                 
-                                            <td>
-                                                {noodle.quantity}
+                                            <td >
+                                            {noodle.quantity}
+                                                
                                             </td>
                 
                                             <td>

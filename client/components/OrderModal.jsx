@@ -2,19 +2,23 @@ import { Modal, useMantineTheme} from '@mantine/core';
 import css from "../styles/OrderModal.module.css";
 import { useStore } from '../store/store';
 import { useState } from 'react';
+import { createOrder } from '../lib/orderHandler';
 
 export default function OrderModal({opened, setOpened, paymentMethod}) {
     const theme = useMantineTheme();
     const cartData = useStore((state)=> state.cart);
-    const total = () => cartData.noodles.reduce((a,b)=>a+b.quantity * b.price, 0);
+    const total = typeof window !== 'undefined' && localStorage.getItem('total');
+    //const total = () => cartData.noodles.reduce((a,b)=>a+b.quantity * b.price, 0);
   const [formData, setFormData] = useState({});
   const handleInput = (e) => {
     setFormData({...formData, [e.target.name]:e.target.value})
   }
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = async (e) =>{
     e.preventDefault();
-    console.log(formData);
+    //console.log(formData);  //works
+    const id = await createOrder({...formData,total, paymentMethod})
+    console.log("Order successfully placed", id);
   }
 
     return(
@@ -31,7 +35,7 @@ export default function OrderModal({opened, setOpened, paymentMethod}) {
             <input onChange={handleInput} type="text" name='phone' required placeholder='Phone Number' />
             <textarea onChange={handleInput} name="address"  rows={3} placeholder='Address'></textarea>
 
-            <span>You will pay <span>${total().toFixed(2)}</span> on delivery</span>
+            <span>You will pay <span>${total}</span> on delivery</span>
             <button className={`buttons ${css.placeOrderBtn}`} type='submit'>Place Order</button>
         </form>
 
