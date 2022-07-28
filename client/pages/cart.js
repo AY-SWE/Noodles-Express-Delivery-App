@@ -14,7 +14,8 @@ export default function Cart() {
     const removeNoodles = useStore((state)=> state.removeNoodles);
     const total = () => cartData.noodles.reduce((a,b)=>a+b.quantity * b.price, 0);
     const [paymentMethod, setPaymentMethod] = useState(null);   //pay on delivery is index 0, pay now is index 1
-
+    const items = () => cartData.noodles.reduce((a,b)=>a+b.quantity, 0);
+    
     const handleRemove = (i) => {
         removeNoodles(i);
         toast.error("Item Removed");
@@ -91,7 +92,7 @@ export default function Cart() {
                     <div className={css.cartDetails}>
                         <div>
                             <span>Items </span>
-                            <span>{cartData.noodles.length}</span>
+                            <span>{items()}</span>
                         </div>
 
                         <div>

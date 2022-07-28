@@ -8,10 +8,10 @@ import Link from 'next/link';
 
 const Header = () => {
     const state = useStore((state) => state);
-    console.log(state);     //works
-
-    const items = useStore((state) => state.cart.noodles.length);
- 
+    //console.log(state);     //works
+    const cartData = useStore((state)=> state.cart);
+    const items = () => cartData.noodles.reduce((a,b)=>a+b.quantity, 0);
+    
      return (
     <div className={css.header}> 
         <Link href='/'>
@@ -35,7 +35,7 @@ const Header = () => {
             <Link href = '/cart'>
                 <div className={css.cart}>
                     <ShoppingCartOutlinedIcon sx={{ fontSize: "30px" }}/>
-                    <div className={css.badge}>{items}</div>
+                    <div className={css.badge}>{items()}</div>
                 </div>
             </Link>
 

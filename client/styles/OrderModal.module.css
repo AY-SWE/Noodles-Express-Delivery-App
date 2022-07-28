@@ -19,3 +19,13 @@
     font-weight: bold;
 }
 
+.placeOrderBtn{
+    background-color: #00914F;
+    color: #dbbdaf;
+    font-weight: bold;
+}
+
+.placeOrderBtn:hover{
+    background-color: #FF770F;
+    color: #000010;
+}

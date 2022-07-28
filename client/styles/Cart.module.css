@@ -29,7 +29,7 @@
     justify-content: space-between;
     height: 14rem;
     padding: 1.5rem;
-    background-color: var(--cartBack);
+    background-color: #fdecdb;
     box-shadow: var(--shadow);
     border-radius: 1rem;
 }
