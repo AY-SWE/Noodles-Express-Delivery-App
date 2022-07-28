@@ -1,0 +1,21 @@
+.formContainer{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formContainer>input, .formContainer>textarea {
+    padding: .8rem;
+    width: 100%;
+    outline: none;
+    border: 2px solid rgb(200, 196, 196);
+    border-radius: 1rem;
+}
+
+.formContainer>span>span{
+    color: var(--themeGold);
+    font-size: 18px;
+    font-weight: bold;
+}
+
