@@ -3,6 +3,7 @@ import css from "../styles/OrderModal.module.css";
 import { useStore } from '../store/store';
 import { useState } from 'react';
 import { createOrder } from '../lib/orderHandler';
+import toast, {Toaster} from "react-hot-toast"
 
 export default function OrderModal({opened, setOpened, paymentMethod}) {
     const theme = useMantineTheme();
@@ -18,7 +19,8 @@ export default function OrderModal({opened, setOpened, paymentMethod}) {
     e.preventDefault();
     //console.log(formData);  //works
     const id = await createOrder({...formData,total, paymentMethod})
-    console.log("Order successfully placed", id);
+    toast.success("Order successfully placed");
+     
   }
 
     return(
@@ -39,7 +41,7 @@ export default function OrderModal({opened, setOpened, paymentMethod}) {
             <button className={`buttons ${css.placeOrderBtn}`} type='submit'>Place Order</button>
         </form>
 
-
+      <Toaster/>
       </Modal>
     );
 };
