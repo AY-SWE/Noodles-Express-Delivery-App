@@ -29,6 +29,7 @@
 .logo>span{
     font-weight: bold;
     font-size: 20px;
-    color: var(--themeGold)
-    
+    color: transparent;
+    background-clip: text;
+    background-image: var(--themeGoldGradient); 
 }   

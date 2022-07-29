@@ -3,10 +3,13 @@ import css from "../styles/OrderModal.module.css";
 import { useStore } from '../store/store';
 import { useState } from 'react';
 import { createOrder } from '../lib/orderHandler';
-import toast, {Toaster} from "react-hot-toast"
+import toast, {Toaster} from "react-hot-toast";
+import {useRouter} from 'next/router'
 
 export default function OrderModal({opened, setOpened, paymentMethod}) {
     const theme = useMantineTheme();
+    const router = useRouter();
+
     const cartData = useStore((state)=> state.cart);
     const total = typeof window !== 'undefined' && localStorage.getItem('total');
     //const total = () => cartData.noodles.reduce((a,b)=>a+b.quantity * b.price, 0);
@@ -27,6 +30,8 @@ export default function OrderModal({opened, setOpened, paymentMethod}) {
     {
       typeof window !== 'undefined' && localStorage.setItem('order',id);
     }
+
+    router.push(`/order/${id}`);
   }
 
     return(
