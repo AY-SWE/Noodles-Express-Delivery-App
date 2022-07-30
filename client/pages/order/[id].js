@@ -13,6 +13,7 @@ import Cooking from "../../sampleImages/cooking2.png"
 import Spinner from "../../sampleImages/spinner.svg"
 import Onway from "../../sampleImages/onway.png"
 import {UilBill, UilBox } from "@iconscout/react-unicons"
+import { useEffect } from 'react';
 
 export const getServerSideProps = async({params}) => {
     const query = `*[_type == "order" && _id == '${params.id}']`;
@@ -25,6 +26,12 @@ export const getServerSideProps = async({params}) => {
   }
 
 export default function Orders({order}) {
+    useEffect(() => {
+      if(order.status > 3){   //when specific order is delivered, we can remove the receipt icon
+        localStorage.clear();
+      }
+    }, [order]);
+
     return(
       <Layout>
           <div className={css.container}>
