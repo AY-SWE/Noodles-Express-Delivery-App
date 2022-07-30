@@ -23,6 +23,7 @@ const Homepage = () => {                //homepage background image
             <button className={`buttons ${css.orderButton}`}>
                 Online Order
             </button>
+            
         </div>
 
         <div className={css.rightSide}>

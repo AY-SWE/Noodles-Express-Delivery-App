@@ -10,8 +10,10 @@ import { tooltipClasses } from '@mui/material';
 import OrderModal from '../components/OrderModal';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import {useRouter} from 'next/router'
 
 export default function Cart() {
+    const router = useRouter();
     const cartData = useStore((state)=> state.cart);
     const removeNoodles = useStore((state)=> state.removeNoodles);
     const total = () => cartData.noodles.reduce((a,b)=>a+b.quantity * b.price, 0);
@@ -27,6 +29,26 @@ export default function Cart() {
          setPaymentMethod(0);
          typeof window !== 'undefined' && localStorage.setItem('total', total())    //need this condition since we're working with next.js
     }
+
+    const handleCheckout= async ()=>{
+        typeof window !== 'undefined' &&  localStorage.setItem('total', total()) 
+        setPaymentMethod(1);
+        const response = await fetch('/api/stripe', {
+            method:'POST',
+            headers:{
+                'Content-Type' : "application/json",
+            },
+            body: JSON.stringify(cartData.noodles),
+
+        });
+
+        if(response.status === 500) 
+            return;
+        const data = await response.json();
+        toast.loading("Redirecting...");
+        router.push(data.url);
+    }
+
     return(
         <Layout>
           <div className={css.container}>
@@ -106,7 +128,7 @@ export default function Cart() {
                             <div className={`buttons ${css.payOnDeliveryBtn}`} onClick={handleOnDelivery}> 
                                 Pay on Delivery
                             </div>
-                            <div className={`buttons ${css.payNowBtn}`} > 
+                            <div className={`buttons ${css.payNowBtn}`} onClick={handleCheckout}> 
                                 Pay Now
                             </div>
                         </div>
