@@ -55,6 +55,7 @@
     z-index:99;
     display: flex;
     position: relative;
+    left: -1rem;
 }
 
 .badge{

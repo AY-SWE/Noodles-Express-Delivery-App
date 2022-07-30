@@ -1,12 +1,18 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import css from '../styles/Header.module.css'
 import Logo from "../sampleImages/Logo.png"
 import Image from "next/image"
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { useStore } from '../store/store';
 import Link from 'next/link';
+import {UilReceipt } from "@iconscout/react-unicons"
 
 const Header = () => {
+    const [order, setOrder] = useState("");
+    useEffect(() => {
+        setOrder(localStorage.getItem("order")); //when we placed order, we setItem of orderId into local storage, now we retrieve it
+      
+    }, []);
     const state = useStore((state) => state);
     //console.log(state);     //works
     const cartData = useStore((state)=> state.cart);
@@ -38,6 +44,17 @@ const Header = () => {
                     <div className={css.badge}>{items()}</div>
                 </div>
             </Link>
+
+            {order && (
+                <Link href={`/order/${order}`}>
+                    <div className={css.cart}>
+                        <UilReceipt sx={{ fontSize: "30px" }}/>
+                        {order != "" && <div className={css.badge}>
+                                1
+                        </div>}
+                    </div>
+                </Link>
+            )}
 
         </div>
     </div>
