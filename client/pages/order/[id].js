@@ -50,7 +50,7 @@ export default function Orders({order}) {
                     <UilBill width={50} height={50}/>
                       <span>Payment</span>
                       {order.method === 0?<span className={css.pending}>Pay upon Delivery</span> 
-                      : <span className={css.delivered}>Paid via Online</span>}
+                      : <span className={css.pendingOnline}>Paid via Online</span>}
                   </div>
 
                   <div className={css.status}>
@@ -62,16 +62,40 @@ export default function Orders({order}) {
                             <Image src={Spinner} alt=""/>
                         </div>
                       )}
+
+                      {order.status > 1 && (
+                        <span className={css.completed}>Completed</span>
+                      )}
                   </div>
 
                   <div className={css.status}>
                       <Image src={Onway} alt="" width={50} height={50}/>
                       <span>En route</span>
+
+                      {order.status === 2 && (
+                        <div className={css.spinner}>
+                            <Image src={Spinner} alt=""/>
+                        </div>
+                      )}
+
+                      {order.status > 2 && (
+                        <span className={css.completed}>Completed</span>
+                      )}
                   </div>
 
                   <div className={css.status}>
                       <UilBox width={50} height={50}/>
                       <span>Delivered</span>
+
+                      {order.status === 3 && (
+                        <div className={css.spinner}>
+                            <Image src={Spinner} alt=""/>
+                        </div>
+                      )}
+
+                    {order.status > 3 && (
+                        <span className={css.completed}>Completed</span>
+                      )}
                       
                   </div>
 

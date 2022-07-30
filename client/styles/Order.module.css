@@ -45,6 +45,11 @@
     position: relative;
 }
 
+.status>span{
+    display: flex;
+    width: max-content;
+}
+
 .status>*{
     fill: var(--themeRed);
 }
@@ -56,11 +61,22 @@
     width: 6rem;
 }
 
-.pending{
-    width: max-content;
-    background-color: var(--themeGold);
-    padding: 0.5rem;
-    font-size: 0.8rem;
-    border-radius: 1rem;
-    color: white;
+.pending, .pendingOnline{
+   width: max-content;
+  font-size: 14px;
+  padding: .8rem;
+  border: none;
+  border-radius: 40px;
+  color: white;
+  background-color: #eda233;
 }
+
+.completed{
+    width: max-content;
+   font-size: 14px;
+   padding: .8rem;
+   border: none;
+   border-radius: 40px;
+   color: white;
+   background-color: #07b566;
+ }
