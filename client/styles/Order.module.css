@@ -30,3 +30,37 @@
 .details>div>span:nth-child(2){
     font-weight: 600;
 }
+
+.statusContainer{
+    display: flex;
+    gap: 15rem;
+}
+
+.status{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 3rem;
+    align-items: center;
+    position: relative;
+}
+
+.status>*{
+    fill: var(--themeRed);
+}
+
+.spinner{
+    position: absolute;
+    left: -1.8rem;
+    top: -1.5rem;
+    width: 6rem;
+}
+
+.pending{
+    width: max-content;
+    background-color: var(--themeGold);
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 1rem;
+    color: white;
+}
