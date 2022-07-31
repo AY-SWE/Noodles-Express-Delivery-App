@@ -19,7 +19,10 @@ export default function Cart() {
     const total = () => cartData.noodles.reduce((a,b)=>a+b.quantity * b.price, 0);
     const [paymentMethod, setPaymentMethod] = useState(null);   //pay on delivery is index 0, pay now is index 1
     const items = () => cartData.noodles.reduce((a,b)=>a+b.quantity, 0);
-    
+    const [order, setOrder] = useState(
+        typeof window !== 'undefined' && localStorage.getItem('order') 
+    );
+
     const handleRemove = (i) => {
         removeNoodles(i);
         toast.error("Item Removed");
@@ -123,15 +126,18 @@ export default function Cart() {
                             <span>Total</span>
                             <span>$ {total().toFixed(2)}</span>
                         </div>
-
-                        <div className={css.cartButtons}>
-                            <div className={`buttons ${css.payOnDeliveryBtn}`} onClick={handleOnDelivery}> 
-                                Pay on Delivery
-                            </div>
-                            <div className={`buttons ${css.payNowBtn}`} onClick={handleCheckout}> 
-                                Pay Now
-                            </div>
-                        </div>
+                            
+                        {!order && cartData.noodles.length > 0 ? (
+                             <div className={css.cartButtons}>
+                             <div className={`buttons ${css.payOnDeliveryBtn}`} onClick={handleOnDelivery}> 
+                                 Pay on Delivery
+                             </div>
+                             <div className={`buttons ${css.payNowBtn}`} onClick={handleCheckout}> 
+                                 Pay Now
+                             </div>
+                         </div>
+                        ): null}
+                       
 
                     </div>
 
