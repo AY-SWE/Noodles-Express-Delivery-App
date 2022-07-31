@@ -2,3 +2,5 @@
 
 A Next.js (https://nextjs.org/) project bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### Technologies used: Sanity, Stripe, Zustand
+
